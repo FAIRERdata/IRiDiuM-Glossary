@@ -1,0 +1,206 @@
+<!-- glossary.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Viewport Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>IRiDiuM Glossary</title>
+    <!-- Assessment favicon -->
+    <link rel="shortcut icon" href="images/Shortcut Logo.png">
+    <style>
+        .fixed1 {
+            position: fixed;
+            top: 15vh;
+            width: 8.33%;
+            max-height: 85vh;
+            overflow-y: auto;
+            background-color: white;
+            z-index: 1;
+        }
+
+        .placeholder1 {
+            width: 8.33%;
+        }
+
+        .fixed2 {
+            position: fixed;
+            top: 0;
+            height: 15vh;
+            width: 100%;
+            background-color: white;
+            z-index: 1;
+        }
+
+        .container-fluid {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .placeholder2 {
+            height: 15vh;
+            width: 100%;
+        }
+
+        .logo {
+            width: auto;
+            height: 15vh;
+        }
+
+        .title {
+            width: 80vw;
+            height: auto;
+        }
+
+        li::before {
+            content: "";
+            display: block;
+            height: 15vh;
+            margin: -15vh 0 0;
+            visibility: hidden;
+        }
+
+        #printButton {
+            font-size: 14px;
+            background-color: white;
+        }
+
+        #intro-box {
+            border-style: solid;
+            border-color: #1e3a79;
+            border-radius: 15px;
+            padding-left: 15px;
+            padding-bottom: 10px;
+            background-color: #f5f5f5;
+        }
+        #before-intro-box {
+            content: "";
+            display: block;
+            height: 15vh;
+            margin: -15vh 0 0;
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row fixed2">
+            <div class="col-md-2">
+                <img class="logo" src="images/IRiDiuM Logo.png" alt="IRiDiuM Logo">
+            </div>
+            <div class="col-md-10 d-flex flex-column justify-content-between">
+                <div class="row">
+                    <div class="col d-flex align-items-center justify-content-end">
+                        <button id="printButton"> Print to Excel</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex align-items-end justify-content-start">
+                        <img class="title" src="images/Title.png" alt="Title">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row placeholder2"></div>
+        <div class="row">
+            <div class="col-md-1 placeholder1"></div>
+            <div class="col-md-1 fixed1">
+                <p align="center">
+                    <strong>Index</strong>
+                    {% for letter in 'abcdefghijklmnopqrstuvwxyz' %}
+                    {% if first_terms[letter] %}
+                    <br> <a
+                        href="#{{ first_terms[letter].replace(' ', '_').replace('-', '').replace('.', '')|lower }}">{{
+                        letter.upper() }}</a>
+                    {% endif %}
+                    {% endfor %}
+                    <br><a href="#before-intro-box">Back to Top</a>
+                </p>
+            </div>
+            <div class="col-md-11">
+                <div id="before-intro-box"></div>
+                <br>
+                <div class="col-md-12" id="intro-box">
+                    <br>
+                    <p>
+                        This transdisciplinary glossary for research data management was developed to facilitate
+                        communication between the diverse stakeholders engaged in this area. The initial compilation
+                        from a variety of online sources was reviewed and refined by a wide range of vocabulary and
+                        domain specific experts. Community-sourcing was used to refine the glossary.
+                    </p>
+                    <p>
+                        The need for such a glossary emerged as an increasing number of new terms have come into use to
+                        refer to new concepts and as terms borrowed from other disciplines have been given new meaning.
+                        The aim is a stable glossary of community accepted definitions kept relevant by maintaining a
+                        'living resource' that is updated when necessary.
+                    </p>
+                    <p>
+                        IRiDiuM was originally developed and maintained by Research Data Canada (RDC) Standards &
+                        Interoperability Committee (SINC) in partnership with the international Consortia Advancing
+                        Standards in Research Administration Information (CASRAI).
+                    </p>
+                    <p>
+                        Version 0.1.0 (alpha)
+                    </p>
+                </div>
+                <br>
+                <ul>
+                    {% for entry in glossary_entries %}
+                    <li id="{{ entry['Term'].replace(' ', '_').replace('-', '').replace('.', '')|lower }}">
+                        <h3>{{ entry['Term'] }}</h3>
+                        {% if entry['Short Definition'] %}
+                        <p><strong>Short Definition:</strong> {{ entry['Short Definition'] }}</p>
+                        {% endif %}
+                        {% if entry['Long Definition'] %}
+                        <p><strong>Long Definition:</strong> {{ entry['Long Definition'] }}</p>
+                        {% endif %}
+                        {% if entry['Reference'] %}
+                        <p><strong>Reference:</strong> {{ entry['Reference'] }}</p>
+                        {% endif %}
+                        {% if entry['Synonym'] %}
+                        <p><strong>Synonym:</strong> {{ entry['Synonym'] }}</p>
+                        {% endif %}
+                        {% if entry['Related Term'] %}
+                        <p><strong>Related Term:</strong> {{ entry['Related Term'] }}</p>
+                        {% endif %}
+                        <!-- add ID field to glossary entries-->
+                        <!--
+                        {% if entry['ID'] %}
+                        <p><strong>ID:</strong> {{ entry['ID'] }}</p>
+                        {% endif %}
+                        -->
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script>
+        document.getElementById('printButton').addEventListener('click', function () {
+            var glossaryEntries = {{ glossary_entries| tojson | safe
+        }};
+        var data = [['Term', 'Short Definition', 'Long Definition', 'Reference', 'Synonym', 'Related Term']];
+        for (var i = 0; i < glossaryEntries.length; i++) {
+            var entry = glossaryEntries[i];
+            data.push([
+                entry['Term'],
+                entry['Short Definition'],
+                entry['Long Definition'],
+                entry['Reference'],
+                entry['Synonym'],
+                entry['Related Term']
+            ]);
+        } ws = XLSX.utils.aoa_to_sheet(data);
+        var wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+        XLSX.writeFile(wb, 'glossary.xlsx');
+    });
+    </script>
+</body>
+
+</html>
