@@ -1,4 +1,4 @@
-IRiDiuM - International Research Data Management glossary
+# International Research Data Management glossary (IRiDiuM)
 
 IRiDiuM is a transdisciplinary glossary for research data management that has been developed to facilitate communication between diverse stakeholders working together in this area. The initial compilation from a variety of online sources was reviewed and refined by a wide range of vocabulary and domain specific experts. Community sourcing was used to refine the glossary.
 
