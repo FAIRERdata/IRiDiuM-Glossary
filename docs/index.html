@@ -3,14 +3,20 @@
 <html>
 
 <head>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- Viewport Meta Tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="UTF-8">
     <title>IRiDiuM Glossary</title>
     <!-- Assessment favicon -->
     <link rel="shortcut icon" href="images/Shortcut Logo.png">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <style>
         .fixed1 {
             position: fixed;
@@ -54,6 +60,17 @@
             width: 80vw;
             height: auto;
         }
+        
+        .modal-header, .modal-footer {margin: 1px;}
+        .modal-body {background-color: #FDFDFD; margin-left: 1px; }
+
+        .custom-modal .modal-dialog {
+            max-width: 60%; /* Change this to your preferred width */
+        }
+
+        .custom-modal .modal-header .close {
+            margin-left: auto; /* This will push the close button to the right */
+        }
 
         li::before {
             content: "";
@@ -61,6 +78,14 @@
             height: 15vh;
             margin: -15vh 0 0;
             visibility: hidden;
+        }
+
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
         }
 
         #printButton {
@@ -83,7 +108,23 @@
             margin: -15vh 0 0;
             visibility: hidden;
         }
+        #modal-title {
+            text-align: left;
+        }
     </style>
+    <script>
+        function write_to_modal(title, contents) {
+            $("#modal-title").html(title);
+            $("#modal-body").html(contents);
+        }
+
+        function show_modal(id_prefix) {
+            var title = document.getElementById(id_prefix + "-title").textContent;
+            var contents = document.getElementById(id_prefix + "-contents").innerHTML;
+            write_to_modal(title, contents);
+            $('#modal').modal('show');
+        }
+    </script>
 </head>
 
 <body>
@@ -259,6 +300,11 @@
                     <p>
                         Version 0.1.0 (alpha)
                     </p>
+                        <p> <a href="https://www.niso.org/press-releases/contributor-roles-taxonomy-credit-formalized-ansiniso-standard"
+                            target="_blank">CRediT <i class="fa fa-external-link"></i></a><a href="" data-toggle="modal"
+                            onclick="show_modal('citation')"> Author statement <i
+                                class="fa fa-long-arrow-left"></i></a>
+                        </p>
                 </div>
                 <br>
                 <ul>
@@ -9291,6 +9337,51 @@ Allows values in list: Person ID Types</p>
                     </li>
                     
                 </ul>
+            </div>
+        </div>
+    </div>
+    <div id="citation">
+        <div id="citation-title">Author Statement</div>
+        <div id="citation-contents">
+            <p style="margin-left: 25px;">
+                <a href="https://orcid.org/0009-0008-2060-8204">Esther Liu <img alt="ORCID logo"
+                        src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16"
+                        height="16" /></a> (Data curation, Software, Visualization) ; <br>
+                <a href="https://orcid.org/0000-0002-7349-6970">Dominique Charles <img alt="ORCID logo"
+                        src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16"
+                        height="16" /></a> (Methodology, Validation) ; and,<br>
+                <a href="https://orcid.org/0000-0001-9138-5986">Claire C. Austin <img alt="ORCID logo"
+                        src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16"
+                        height="16" /></a> (Conceptualization, Supervision, Writing).<br>
+            </p>
+            <p style="margin-left: 25px;">
+                This work ... <br>
+            </p>
+            <p style="margin-left: 25px;">All authors reviewed, discussed, and agreed to all aspects of the final
+                work.</p>
+            <p style="margin-left: 25px;">
+                All views and opinions expressed are those of the co-authors, and do not necessarily reflect the
+                official policy or position of their respective employers, or of any government, agency or
+                organization.
+            </p>
+            <p>
+                Cite as: Liu E, Charles D, and Austin CC (2024).IRiDiuM Glossary. Version 0.1.0 (alpha). Retrieved from
+                Tool.</p>
+        </div>
+    </div>
+    <div id="modal" class="modal fade custom-modal" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-title">
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
