@@ -89,26 +89,27 @@
 <body>
     <div class="container-fluid">
         <div class="row fixed2">
-            <div class="col-md-2">
-                <img class="logo" src="images/IRiDiuM Logo.png" alt="IRiDiuM Logo">
+            <div class="col-2">
+                <img class="logo img-fluid" src="images/IRiDiuM Logo.png" alt="IRiDiuM Logo">
             </div>
-            <div class="col-md-10 d-flex flex-column justify-content-between">
+            <div class="col-10 d-flex flex-column justify-content-between">
                 <div class="row">
-                    <div class="col d-flex align-items-center justify-content-end">
+                    <div class="col-6"></div>
+                    <div class="col-6 d-flex align-items-center justify-content-end">
                         <button id="printButton"> Print to Excel</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col d-flex align-items-end justify-content-start">
-                        <img class="title" src="images/Title.png" alt="Title">
+                        <img class="title img-fluid" src="images/Title.png" alt="Title">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row placeholder2"></div>
         <div class="row">
-            <div class="col-md-1 placeholder1"></div>
-            <div class="col-md-1 fixed1">
+            <div class="col-1 placeholder1"></div>
+            <div class="col-1 fixed1">
                 <p align="center">
                     <strong>Index</strong>
                     {% for letter in 'abcdefghijklmnopqrstuvwxyz' %}
@@ -121,7 +122,7 @@
                     <br><a href="#before-intro-box">Back to Top</a>
                 </p>
             </div>
-            <div class="col-md-11">
+            <div class="col-11">
                 <div id="before-intro-box"></div>
                 <br>
                 <div class="col-md-12" id="intro-box">
