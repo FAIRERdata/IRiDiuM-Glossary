@@ -1,4 +1,4 @@
-# IRIDiuM-Glossary User Manual
+# IRIDiuM-Glossary Developer Manual
 
 ## Introduction
 
