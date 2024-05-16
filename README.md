@@ -5,5 +5,3 @@ IRiDiuM is an interdisciplinary glossary for research data management that has b
 The need for such a glossary emerged as an increasing number of new terms have come into use to refer to new concepts and as terms borrowed from other disciplines have been given new meaning. The aim is a stable glossary of community accepted definitions kept relevant by maintaining a 'living resource' that is updated when necessary.
 
 IRiDiuM was originally developed by the Research Data Canada (RDC) Standards & Interoperability Committee (SINC) in partnership with the international Consortia Advancing Standards in Research Administration Information (CASRAI). 
-
-Version 0.1.0 (alpha)
