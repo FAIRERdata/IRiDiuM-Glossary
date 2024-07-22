@@ -66,4 +66,4 @@ If you make changes to any of the code and would like to see those changes refle
 
 ## Encoding Complications
 
-Please note that Github Pages is encoded using UTF-8; therefore, any symbols not in UTF-8 will be shown as a � symbol. Correct these symbols in the source file Google sheets and then use the new file as the input file. Examples of characters that may have issues are accented characters or variates of symbols (ï, é, “, ”, —). 
+Please note that Github Pages is encoded using UTF-8; therefore, any symbols not in UTF-8 will be shown as a � symbol. Correct these symbols in the source file Google sheets and then use the new file as the input file. Examples of characters that may have issues are accented characters or variates of symbols (ï, é, —). 
