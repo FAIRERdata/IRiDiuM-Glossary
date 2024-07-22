@@ -8,24 +8,20 @@ This repository contains the IRIDiuM-Glossary, a collection of vocabularies for 
 
 ### Prerequisites
 
-Before you can use the IRIDiuM-Glossary repository, you need to clone the repository and install some Python packages. 
+Before you can use the IRIDiuM-Glossary repository, you need to download the repository and install some Python packages. 
 
-1. Clone the repository:
+1. Download a ZIP file of the IRIDiuM-Glossary repository and extract all files
 
-```bash
-git clone https://github.com/yourusername/IRIDiuM-Glossary.git
-```
+2. Open the extracted IRIDiuM-Glossary folder in VScode or code editor of choice. Make sure the terminal is navigated to the repository folder.
 
-2. Navigate into the cloned repository:
-
-```bash
-cd IRIDiuM-Glossary
-```
-
-3. Install the required Python packages, `flask` and `pandas`:
+3. Install the required Python packages, `flask`, `pandas`, and `openpyxl`:
 
 ```bash
 pip3 install flask pandas
+```
+If the above does not work, try this: 
+```bash
+py -m pip install flask pandas openpxyl
 ```
 
 ## Usage
@@ -45,6 +41,10 @@ After you have gathered your vocabularies and formatted them correctly, you can 
 ```bash
 python3 data_api.py
 ```
+If the above does not work, try:
+```bash
+py data_api.py
+```
 
 ### Viewing the Generated HTML
 
@@ -63,3 +63,7 @@ If you make changes to any of the code and would like to see those changes refle
 1. After making your changes, save your files and ensure the Flask server is still running.
 2. Open a web browser and navigate to `http://localhost:5000`. Refresh the page.
 3. Open `docs/index.html` in your web browser and refresh the page. You should now see the updated version of the HTML.
+
+## Encoding Complications
+
+Please note that Github Pages is encoded using UTF-8; therefore, any symbols not in UTF-8 will be shown as a � symbol. Correct these symbols in the source file Google sheets and then use the new file as the input file. Examples of characters that may have issues are accented characters or variates of symbols (ï, é, “, ”, —). 
