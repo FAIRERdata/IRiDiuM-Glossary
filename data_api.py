@@ -46,7 +46,7 @@ def glossary():
         os.makedirs('docs')
 
     # Save the rendered HTML to 'docs/index.html'
-    with open('docs/index.html', 'w') as f:
+    with open('docs/index.html', 'w', encoding='utf-8') as f:
         f.write(rendered_html)
 
     return 'Static HTML file generated successfully'
