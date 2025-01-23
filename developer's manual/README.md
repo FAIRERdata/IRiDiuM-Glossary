@@ -29,6 +29,7 @@ py -m pip install flask pandas openpxyl
 ### Gathering Vocabularies
 
 When adding new vocabularies to the IRIDiuM-Glossary, make sure to format them in the same way as the existing vocabularies in 'data/IRiDiuM.xlsx'. This ensures that the vocabularies can be correctly processed by the application.
+The ID column refers to the CASRAI terms identifier found at https://web.archive.org/web/20180516211503/http://dictionary.casrai.org/
 
 ### Running the Data API
 
