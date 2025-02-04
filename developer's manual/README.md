@@ -21,7 +21,7 @@ pip3 install flask pandas
 ```
 If the above does not work, try this: 
 ```bash
-py -m pip install flask pandas openpxyl
+py -m pip install flask pandas openpyxl
 ```
 
 ## Usage
