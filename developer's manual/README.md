@@ -46,24 +46,13 @@ If the above does not work, try:
 ```bash
 py data_api.py
 ```
+Open a web browser and navigate to `http://localhost:5000`. This is where the Flask server is running.
 
 ### Viewing the Generated HTML
 
-After running the `data_api.py` script, you can view the generated HTML to make sure it was created successfully.
+After running the `data_api.py` script, you can view the generated HTML to make sure it was created successfully. The generated HTML file is saved as `docs/index.html`. This file is a preview of the designated deployment.
 
-1. Open a web browser and navigate to `http://localhost:5000`. This is where the Flask server is running.
-2. If the HTML was generated successfully, you should see your vocabularies displayed in the browser.
-3. If there was an error generating the HTML, you will see an error log in the browser. You can use this log to troubleshoot any issues.
-
-The generated HTML file is saved as `docs/index.html`. This file is a preview of the designated deployment.
-
-### Refreshing the Deployment
-
-If you make changes to any of the code and would like to see those changes reflected in the deployment, you can do so by refreshing `http://localhost:5000`.
-
-1. After making your changes, save your files and ensure the Flask server is still running.
-2. Open a web browser and navigate to `http://localhost:5000`. Refresh the page.
-3. Open `docs/index.html` in your web browser and refresh the page. You should now see the updated version of the HTML.
+Open `docs/index.html` in your web browser and refresh the page. You should now see the updated version of the HTML.
 
 ## Encoding Complications
 
